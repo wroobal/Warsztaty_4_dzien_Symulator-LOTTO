@@ -9,8 +9,9 @@ drawn_list = list_numbers[0:6]
 drawn_list.sort()
 
 
-final_user_list= []
+final_user_list = []
 
+# applying elements, verifying
 while True:
     try:
         separator = "','"
@@ -25,25 +26,27 @@ while True:
     break
 
 final_user_list.sort()
-wynik = 0
-
-for liczba in final_user_list:
-    if final_user_list.count(liczba)>1:
-        print(f"Number {liczba} duplicated")
+result = 0
+# checking duplicates
+for number in final_user_list:
+    if final_user_list.count(number) > 1:
+        print(f"Number {number} duplicated")
         break
-    elif liczba not in range(0,50):
-        print(f'Number {liczba} is not in range  1-49')
+# checking number in range 1-49
+    elif number not in range(1,50):
+        print(f'Number {number} is not in range  1-49')
         break
     else:
-        if drawn_list.count(liczba)==1:
-            wynik += 1
-
+        if drawn_list.count(number) == 1:
+            result += 1
+# checking elements in user list (must be 6 elements)
 if  final_user_list == []:
-        print("Nie wprowadziłeś poprawnie liczb")
+        print("Your numbers are incorrect ")
 elif len(final_user_list) != 6:
     print("< 6 elements")
     pass
+# printing results
 else:
-    print(f'Your numbers {final_user_list}, \nDrawn numbers {drawn_list}\nYou guessed #{wynik}# of them !')
+    print(f'Your numbers {final_user_list}, \nDrawn numbers {drawn_list}\nYou guessed #{result}# of them !')
 
 
